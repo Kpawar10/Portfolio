@@ -124,12 +124,13 @@ span{
     line-height: 1.8;
     max-width:1000px;
 }
+
 .social-icons a{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 5rem;
+    height: 5rem;
     background: transparent;
     border: 2px solid var(--main-color);
     font-size: 2.5rem;
@@ -158,92 +159,208 @@ span{
     transition: 0.3s ease-in-out;
     cursor: pointer;
 }
-.btn:hover{
+.btn:hover {
     transform: scale(1.05);
     box-shadow: 0 0 50px var(--main-color);
 }
-.btn-group{
-    display :flex;
+
+.btn-group {
+    display: flex;
     align-items: center;
     gap: 1.5rem;
 }
-.btn-group a:nth-of-type(2){ 
-  background-color: black;
-  color: var(--main-color);
-  border: 2px solid var(--main-color);
-  box-shadow:  0 0 25px transparent;
+
+.btn-group a:nth-of-type(2) { 
+    background-color: black;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    box-shadow: 0 0 25px transparent;
+    transition: 0.3s ease-in-out;
 }
-.btn-group a:nth-of-type(2):hover{
+
+.btn-group a:nth-of-type(2):hover {
     box-shadow: 0 0 25px var(--main-color);
-background-color: var(--main-color);
-color: black;
+    background-color: var(--main-color);
+    color: black;
 }
-.text-animation{
+
+/* Text Animation */
+.text-animation {
     font-size: 34px;
     font-weight: 600;
-    min-width: 280px;
-}
-.text-animation span{
-    position: relative;
+    min-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
     display: inline-block;
 }
-.text-animation span::before{
-    content:" Data Scientist";
+
+.text-animation span {
+    position: relative;
+    display: inline-block;
+    padding-left: 10px;  /* Space before the text */
+}
+
+.text-animation span::before {
+    content: " Data Scientist"; /* Space added before text */
     color: var(--main-color);
-    animation: words 20s infinite;
+    animation: words 15s infinite;
 }
-.text-animation span::after{
-    content:"";
-    background-color:var(--bg-color) ;
-    position:  absolute;
-    width: calc(100%+8px);
+
+.text-animation span::after {
+    content: "";
+    background-color: var(--bg-color);
+    position: absolute;
+    width: 100%;
     height: 100%;
-    border-left: 3px solid var(--bg-color);
-    right: -8px;
-    animation: cursor 0.6s infinite,typing 10s steps(14,end) infinite;
+    border-left: 3px solid var(--main-color);
+    right: 0;
+    animation: typing 10s steps(20, end) infinite, cursor-blink 0.8s infinite;
 }
-@keyframes cursor{
-    to{
-        border-left:2px solid var(--main-color);
+
+/* Cursor Blinking */
+@keyframes cursor-blink {
+    50% {
+        border-left-color: transparent;
     }
 }
-@keyframes words{
-    0%,20%{
-        content:" Data Scientist";
+
+/* Rotating Words */
+@keyframes words {
+    0%, 40% {
+        content: " Data Scientist";
     }
-    21%,
-    40%{
-        content:" Machine Learning";
+    50%, 65% {
+        content: " Machine Learning";
     }
-    41%,60%{
+    70%, 100% {
         content: " Data Visualizer";
     }
-    61%,80%{
-        content:" Problem Solver";
+    105%, 135% {
+        content: " Problem Solver";
     }
 }
-@keyframes typing{
-    10%,
-    15%,
-    30%,
-    35%,
-    50%,
-    55%,
-    70%,
-    75%,
-    90%,
-    95%{
-        width:0;
+
+/* Slow Typing Effect */
+@keyframes typing {
+    0%, 30% {
+        width: 100%;
     }
-    5%,
-    20%,
-    25%,
-    40%,
-    45%,
-    60%,
-    65%,
-    80%,
-    85%{
-        width:calc(100%+8px);
+    30%, 60% {
+        width: 0;
     }
+    60%, 90% {
+        width: 100%;
+    }
+    90%, 120% {
+        width: 0;
+    }
+    120%, 150% {
+        width: 100%;
+    }
+}
+
+/* Heading */
+.heading {
+    font-size: 8rem;
+    text-align: center;
+    margin: 5rem 0;
+}
+
+.education{
+    padding: 100px 15px;
+    background-color: var(--second-bg-color);
+}
+.education h2{
+    margin-bottom: 5rem;
+    
+}
+.timeline-items{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    
+}
+.timeline-items::before{
+    content: "";
+    position:  absolute;
+    width: 5px;
+    height: 100%;
+    background-color: var(--main-color);
+    left: calc(50% -1px);
+}
+.timeline-item{
+    margin-bottom: 40px;
+    width: 100%;
+    position: relative;
+    padding-left: 10px;
+}
+.timeline-item:last-child{
+    margin-bottom:0;
+
+}
+.timeline-item:nth-child(odd){
+    padding-right: calc(50% +30px);
+    text-align: right;
+}
+.timeline-item:nth-child(even){
+padding-left: calc(50% +30px);
+text-align: left;
+}
+
+.timeline-dot{
+    height: 21px;
+    width: 21px;
+    background-color: var(--main-color);
+    box-shadow: 0 0 25px var(--main-color),
+                0 0 50px var(--main-color);
+                position: absolute;
+              left: calc(50% -8px);
+              border-radius: 50%;
+              top: 10px;
+              left: 10px;
+              
+            }
+ .timeline-date{
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  margin: 6px 0 15px;
+  padding-left: 30px;    
+ }  
+ .timeline-content{
+    background-color: var(--bg-color);
+    border: 3px solid var(--main-color);
+    padding: 30px 50px;
+    border-radius: 4rem;
+    box-shadow: 0 0 10px var(--main-color);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+ }         
+ .timeline-content:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--main-color);
+ }
+ .timeline-content h3{
+    font-size: 20px;
+    color: white;
+    margin: 0 0 10px;
+    font-weight: 500;
+}
+.timeline-content p{
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+}
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: var(--main-color);  
+}
+::-webkit-scrollbar-track{
+    background-color: var(--bg-color);
+    width: 50px;
 }
