@@ -83,6 +83,7 @@ section{
    text-align: left;
    justify-content: center;
    margin-top: 3rem;
+   height: 300px; /* Set a fixed height to prevent gap changes during text animation */
 }
 span{
     color: var(--main-color);
@@ -95,6 +96,11 @@ span{
     margin-top: 1rem;
     font-size: 3.5rem;
 }
+
+.home-content h3 span {
+    color: var(--main-color);
+}
+
 .home-content h1{
     font-size:7rem;
     font-weight: 700;
@@ -184,81 +190,6 @@ span{
     color: black;
 }
 
-/* Text Animation */
-.text-animation {
-    font-size: 34px;
-    font-weight: 600;
-    min-width: 300px;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-}
-
-.text-animation span {
-    position: relative;
-    display: inline-block;
-    padding-left: 10px;  /* Space before the text */
-}
-
-.text-animation span::before {
-    content: " Data Scientist"; /* Space added before text */
-    color: var(--main-color);
-    animation: words 15s infinite;
-}
-
-.text-animation span::after {
-    content: "";
-    background-color: var(--bg-color);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-left: 3px solid var(--main-color);
-    right: 0;
-    animation: typing 10s steps(20, end) infinite, cursor-blink 0.8s infinite;
-}
-
-/* Cursor Blinking */
-@keyframes cursor-blink {
-    50% {
-        border-left-color: transparent;
-    }
-}
-
-/* Rotating Words */
-@keyframes words {
-    0%, 40% {
-        content: " Data Scientist";
-    }
-    50%, 65% {
-        content: " Machine Learning";
-    }
-    70%, 100% {
-        content: " Data Visualizer";
-    }
-    105%, 135% {
-        content: " Problem Solver";
-    }
-}
-
-/* Slow Typing Effect */
-@keyframes typing {
-    0%, 30% {
-        width: 100%;
-    }
-    30%, 60% {
-        width: 0;
-    }
-    60%, 90% {
-        width: 100%;
-    }
-    90%, 120% {
-        width: 0;
-    }
-    120%, 150% {
-        width: 100%;
-    }
-}
-
 /* Heading */
 .heading {
     font-size: 8rem;
@@ -314,7 +245,7 @@ text-align: left;
     width: 21px;
     background-color: var(--main-color);
     box-shadow: 0 0 25px var(--main-color),
-                0 0 50px var(--main-color);
+                0 0 50px var (--main-color);
                 position: absolute;
               left: calc(50% -8px);
               border-radius: 50%;
@@ -363,4 +294,25 @@ text-align: left;
 ::-webkit-scrollbar-track{
     background-color: var(--bg-color);
     width: 50px;
+}
+
+.im{
+    font-size: 34px;
+}
+.typing-text {
+    position: relative;
+    font-size: 34px;
+}
+
+.typing-text::after {
+    content: "|";
+    position: absolute;
+    right: -8px;
+    width: 8px;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
