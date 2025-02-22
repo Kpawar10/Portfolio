@@ -364,3 +364,23 @@ text-align: left;
     background-color: var(--bg-color);
     width: 50px;
 }
+.skills{
+    background: var(--bg-color);
+    color: black;
+}
+.skills h2{
+    margin-bottom: 5rem;
+    color: white;
+}
+.skills-container{
+    display: grid;
+    grid-template-columns: var(--main-color);
+    align-items: center;
+    gap: 2.5rem;
+}
+.skills-box{
+    background-color: var(--main-color);
+    height: 300px;
+    border-radius: 3rem;
+    border: 5px solid transparent;
+}
