@@ -13,7 +13,7 @@ function type() {
             isWaiting = false;
             isDeleting = true;
             type();
-        }, 2000); // Wait for 2 seconds
+        }, 1500); // Reduced wait time for better rhythm
         return;
     }
 
@@ -32,7 +32,7 @@ function type() {
         wordIndex = (wordIndex + 1) % words.length;
     }
 
-    const typingSpeed = isDeleting ? 50 : 100;
+    const typingSpeed = isDeleting ? 50 : 150; // Adjusted typing speed
     setTimeout(type, typingSpeed);
 }
 
